@@ -3,8 +3,14 @@ input[type='submit'] {
     margin: 12px;
 }
 
-#copyMessage {
+#tooHigh {
+    color: rgb(112, 36, 36);
+}
+
+.invisible {
     display: none;
-    /* transition: transform; */
-    /* transform: translateX(100%); */
+}
+
+#output {
+    padding: auto;
 }
