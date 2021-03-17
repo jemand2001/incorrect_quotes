@@ -10,15 +10,9 @@
         <h1>(Fork of) ScatterPatter's Incorrect Quotes Generator</h1>
         <form id="generationForm" onsubmit="generatePrompt(event)">
             <label for="characterSelect">Number of characters:</label>
-            <select name="characters" id="characterSelect" onchange="disableChars(event)">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="4">Four</option>
-                <option value="5">Five</option>
-                <option value="6">Six</option>
-            </select>
-            <div id=charInputs>
+            <input type="number" min=1 value=1 name="characters" id="characterSelect" onchange="disableChars(event)"></input>
+            <span id="tooHigh" class="invisible">sorry, that number is too high!</span>
+            <div id="charInputs">
                 <input placeholder="Character A" name="character1" autocomplete="off"></input>
                 <input placeholder="Character B" name="character2" autocomplete="off" disabled></input>
                 <input placeholder="Character C" name="character3" autocomplete="off" disabled></input>
