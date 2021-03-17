@@ -36,7 +36,7 @@ async function generatePrompt(e) {
   const chars = [];
 
   for (let i = 0; i < characters; i++) {
-    chars.push(e.target[`character${i}`]);
+    chars.push(e.target[`character${i+1}`].value);
   }
 
   showPrompt(chars, p);
