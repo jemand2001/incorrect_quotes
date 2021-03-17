@@ -1,16 +1,16 @@
 const promptsPromise = fetch("./prompts.json").then(r => r.json());
+const numChars = 6;
 
 function disableChars(e) {
   console.log(e);
   const inputs = [...document.getElementById('charInputs').children];
   const val = Number.parseInt(e.target.value);
-  for (let i = 0; i < val; i++) {
-    inputs[i].disabled = false;
+  for (let i = 0; i < numChars; i++) {
+    inputs[i].disabled = i >= val;
   }
-  for (let i = val; i < 6; i++) {
-    inputs[i].disabled = true;
-    inputs[i].value = "";
-  }
+  // for (let i = val; i < 6; i++) {
+  //   inputs[i].disabled = true;
+  // }
 }
 
 async function generatePrompt(e) {
@@ -19,21 +19,15 @@ async function generatePrompt(e) {
 
   const prompts = await promptsPromise;
 
-  const characterA = e.target["character1"].value;
-  const characterB = e.target["character2"].value;
-  const characterC = e.target["character3"].value;
-  const characterD = e.target["character4"].value;
-  const characterE = e.target["character5"].value;
-  const characterF = e.target["character6"].value;
+  const characters = Number.parseInt(e.target["characters"].value);
+  const chosen = prompts[characters];
 
-  const chosen = prompts[Number.parseInt(e.target["characters"].value)];
-  const str = choice(chosen);
-  const result = str.replace(/{A}/g, characterA)
-                    .replace(/{B}/g, characterB)
-                    .replace(/{C}/g, characterC)
-                    .replace(/{D}/g, characterD)
-                    .replace(/{E}/g, characterE)
-                    .replace(/{F}/g, characterF);
+  let result = choice(chosen);
+  for (let i = 0; i < characters; i++) {
+    const c = String.fromCharCode(65 + i);
+    result = result.replaceAll(`{${c}}`, e.target[`character${i+1}`].value);
+  }
+
   document.getElementById("output").innerHTML = result;     
 }
 
@@ -43,6 +37,7 @@ function copyContent(e) {
       navigator.clipboard.writeText(e.target.innerText);
       const m = document.getElementById("copyMessage")
       m.classList.add("visible")
+      setTimeout(() => m.classList.remove("visible"), 1000);
     }
   });
 }
