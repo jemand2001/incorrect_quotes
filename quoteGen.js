@@ -1,6 +1,15 @@
+// this was originally based on the code of https://incorrect-quotes-generator.neocities.org/
+// however, I found that code so bad (sorry SP) that i had to make my own
+// I think I'll comment what I (think I) improved
+
+
+// i didn't like having like, *all of the prompts* right in the middle of the file,
+// so i moved them out
 const promptsPromise = fetch("./prompts.json").then(r => r.json());
+// i guess i could have this calculated based on the length of the prompts, but eh
 const numChars = 6;
 
+// so this disables the name inputs after the first n
 function disableChars(e) {
   const val = Number.parseInt(e.target.value);
   if (val > numChars) {
