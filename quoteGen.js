@@ -2,15 +2,16 @@ const promptsPromise = fetch("./prompts.json").then(r => r.json());
 const numChars = 6;
 
 function disableChars(e) {
-  console.log(e);
-  const inputs = [...document.getElementById('charInputs').children];
   const val = Number.parseInt(e.target.value);
+  if (val > numChars) {
+    showMessage("tooHigh");
+    e.target.value = numChars;
+    return;
+  }
+  const inputs = [...document.getElementById('charInputs').children];
   for (let i = 0; i < numChars; i++) {
     inputs[i].disabled = i >= val;
   }
-  // for (let i = val; i < 6; i++) {
-  //   inputs[i].disabled = true;
-  // }
 }
 
 async function generatePrompt(e) {
@@ -35,13 +36,22 @@ function copyContent(e) {
   navigator.permissions.query({name: "clipboard-write"}).then(result => {
     if (result.state == "granted" || result.state == "prompt") {
       navigator.clipboard.writeText(e.target.innerText);
-      const m = document.getElementById("copyMessage")
-      m.classList.add("visible")
-      setTimeout(() => m.classList.remove("visible"), 1000);
+      showMessage("copyMessage")
     }
   });
 }
 
 function choice(arr) {
   return arr[Math.floor(Math.random() * arr.length)]
+}
+
+function setMax(e) {
+  console.log(e);
+  e.target.max = numChars;
+}
+
+function showMessage(id) {
+  const m = document.getElementById(id);
+  m.classList.remove("invisible");
+  setTimeout(() => m.classList.add("invisible"), 1000);
 }
