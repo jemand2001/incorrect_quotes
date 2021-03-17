@@ -39,7 +39,7 @@ async function generatePrompt(e) {
     chars.push(e.target[`character${i+1}`].value);
   }
 
-  showPrompt(chars, p);
+  renderPrompt(chars, p);
 }
 
 function copyContent(e) {
@@ -66,7 +66,7 @@ function showMessage(id) {
   setTimeout(() => m.classList.add("invisible"), 1000);
 }
 
-function showPrompt(chars, p) {
+function renderPrompt(chars, p) {
   for (let i = 0; i < chars.length; i++) {
     const c = String.fromCharCode(65 + i);
     p = p.replaceAll(`{${c}}`, chars[i]);
