@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Incorrect Quote generator</title>
+        <script src="./quoteGen.js"></script>
+        <link rel=stylesheet href="./style.css"></link>
+    </head>
+    <body>
+        <h1>(Fork of) ScatterPatter's Incorrect Quotes Generator</h1>
+        <form id=generationForm onsubmit="generatePrompt(event)">
+            <label for="characterSelect">Number of characters:</label>
+            <select name="characters" id="characterSelect" onchange="disableChars(event)">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+                <option value="6">Six</option>
+            </select>
+            <div id=charInputs>
+                <input placeholder="Character A" name="character1" autocomplete="off"></input>
+                <input placeholder="Character B" name="character2" autocomplete="off" disabled></input>
+                <input placeholder="Character C" name="character3" autocomplete="off" disabled></input>
+                <input placeholder="Character D" name="character4" autocomplete="off" disabled></input>
+                <input placeholder="Character E" name="character5" autocomplete="off" disabled></input>
+                <input placeholder="Character F" name="character6" autocomplete="off" disabled></input>
+            </div>
+            <input type="submit" value="Generate Prompt"></input>
+        </form>
+        <div id="output" onclick=copyContent(event)></div>
+        <div>
+            <div id="copyMessage">copied!</div>
+        </div>
+    </body>
+</html>

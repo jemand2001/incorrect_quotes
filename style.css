@@ -1,0 +1,10 @@
+
+input[type='submit'] {
+    margin: 12px;
+}
+
+#copyMessage {
+    display: none;
+    /* transition: transform; */
+    /* transform: translateX(100%); */
+}
