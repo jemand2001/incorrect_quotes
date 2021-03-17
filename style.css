@@ -14,3 +14,8 @@ input[type='submit'] {
 #output {
     padding: auto;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
