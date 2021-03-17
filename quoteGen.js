@@ -20,16 +20,17 @@ async function generatePrompt(e) {
 
   const prompts = await promptsPromise;
 
-  const characters = Number.parseInt(e.target["characters"].value);
+  const characters = e.target["characters"].value;
   const chosen = prompts[characters];
 
-  let result = choice(chosen);
+  let p = choice(chosen);
+  const chars = [];
+
   for (let i = 0; i < characters; i++) {
-    const c = String.fromCharCode(65 + i);
-    result = result.replaceAll(`{${c}}`, e.target[`character${i+1}`].value);
+    chars.push(e.target[`character${i}`]);
   }
 
-  document.getElementById("output").innerHTML = result;     
+  showPrompt(chars, p);
 }
 
 function copyContent(e) {
@@ -54,4 +55,12 @@ function showMessage(id) {
   const m = document.getElementById(id);
   m.classList.remove("invisible");
   setTimeout(() => m.classList.add("invisible"), 1000);
+}
+
+function showPrompt(chars, p) {
+  for (let i = 0; i < chars.length; i++) {
+    const c = String.fromCharCode(65 + i);
+    p = p.replaceAll(`{${c}}`, chars[i]);
+  }
+  document.getElementById("output").innerHTML = p;
 }
