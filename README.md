@@ -7,7 +7,7 @@
 A small webpage thrown together by me that generates incorrect quotes based on the names you enter.
 The quotes are all taken (with permission) from [here](https://incorrect-quotes-generator.neocities.org/).
 I started with most of the code from there as well, but I found it so bad that I ended up rewriting (almost) all of it.
-You can see a live version [here](https://jemand2001.github.io/incorrect_quotes/).
+You can see a live version [here](https://jemand2001.github.io/incorrect_quotes/), or host it on your machine using any static file server.
 
 ## Contributing
 
