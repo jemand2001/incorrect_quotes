@@ -8,6 +8,7 @@
 const promptsPromise = fetch("./prompts.json").then(r => r.json());
 // i guess i could have this calculated based on the length of the prompts, but eh
 const numChars = 6;
+let currentPrompt;
 
 // so this disables the name inputs after the first n
 function disableChars(e) {
@@ -16,6 +17,7 @@ function disableChars(e) {
   for (let i = 0; i < numChars; i++) {
     inputs[i].disabled = i >= val;
   }
+  currentPrompt = undefined;
 }
 
 // this generates the prompt based on form values
@@ -28,14 +30,14 @@ async function generatePrompt(e) {
   const characters = e.target["characters"].value;
   const chosen = prompts[characters];
 
-  let p = choice(chosen);
+  currentPrompt = choice(chosen);
   const chars = [];
 
   for (let i = 0; i < characters; i++) {
     chars.push(e.target[`character${i+1}`].value);
   }
 
-  renderPrompt(chars, p);
+  renderPrompt(chars);
 }
 
 // i thought, since many people just share the text, i'd make it really easy
@@ -72,13 +74,29 @@ function showMessage(id) {
  * @param chars string[] - the names of the characters
  * @param p string - the prompt template
  */
-function renderPrompt(chars, p) {
+function renderPrompt(chars) {
   // instead of a bunch of
   // if (n == "One")
   // i just go over the names and replace the corresponding template with each name
+  let p = currentPrompt;
   for (let i = 0; i < chars.length; i++) {
     const c = String.fromCharCode(65 + i);
     p = p.replaceAll(`{${c}}`, chars[i]);
   }
   document.getElementById("output").innerHTML = p;
+}
+
+function updatePrompt(e) {
+  if (!currentPrompt)
+    return
+  // console.log(e.target);
+  const form = e.target.form;
+  const chars = [];
+  const characters = form["characters"].value
+
+  for (let i = 0; i < characters; i++) {
+    chars.push(form[`character${i+1}`].value);
+  }
+
+  renderPrompt(chars);
 }
