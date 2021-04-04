@@ -62,6 +62,7 @@ function setMax(e) {
     e.target.max = numChars;
 }
 
+// makes one of the message boxes appear for ~1sec
 function showMessage(id) {
   const m = document.getElementById(id);
   m.classList.remove("invisible");
