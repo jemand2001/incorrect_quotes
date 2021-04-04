@@ -11,4 +11,4 @@ You can see a live version [here](https://jemand2001.github.io/incorrect_quotes/
 
 ## Contributing
 
-If you see anything you think can be improved, or want to add a quote, feel free to [submit an issue](https://github.com/jemand2001/incorrect_quotes/issues) or [create a pull request](https://github.com/jemand2001/incorrect_quotes/pulls). I can't guarantee that I'll take care of everything, but I'll certainly try.
+If you see anything you think can be improved, or want to add a quote, feel free to send it as a reply to issue [#2](https://github.com/jemand2001/incorrect_quotes/issues/2) or [create a pull request](https://github.com/jemand2001/incorrect_quotes/pulls). I can't guarantee that I'll take care of everything, but I'll certainly try.
