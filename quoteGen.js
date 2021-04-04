@@ -87,6 +87,7 @@ function renderPrompt(chars) {
   document.getElementById("output").innerHTML = p;
 }
 
+// changes the current prompt to reflect changes in character names (see issue #1)
 function updatePrompt(e) {
   if (!currentPrompt)
     return
