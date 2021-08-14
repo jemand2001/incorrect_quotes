@@ -26,12 +26,12 @@
                 onchange="setMax(event); disableChars(event)"></input>
             <span id="tooHigh" class="invisible">sorry, that number is too high!</span>
             <div id="charInputs">
-                <input placeholder="Character A" name="character1" autocomplete="off" onchange="updatePrompt(event)" required></input>
-                <input placeholder="Character B" name="character2" autocomplete="off" onchange="updatePrompt(event)" required disabled></input>
-                <input placeholder="Character C" name="character3" autocomplete="off" onchange="updatePrompt(event)" required disabled></input>
-                <input placeholder="Character D" name="character4" autocomplete="off" onchange="updatePrompt(event)" required disabled></input>
-                <input placeholder="Character E" name="character5" autocomplete="off" onchange="updatePrompt(event)" required disabled></input>
-                <input placeholder="Character F" name="character6" autocomplete="off" onchange="updatePrompt(event)" required disabled></input>
+                <input placeholder="Character A" name="character1" autocomplete="off" oninput="updatePrompt(event)" required></input>
+                <input placeholder="Character B" name="character2" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
+                <input placeholder="Character C" name="character3" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
+                <input placeholder="Character D" name="character4" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
+                <input placeholder="Character E" name="character5" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
+                <input placeholder="Character F" name="character6" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
             </div>
             <input type="submit" value="Generate Prompt"></input>
         </form>
