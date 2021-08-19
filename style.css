@@ -19,3 +19,7 @@ footer {
     position: fixed;
     bottom: 0;
 }
+
+#characterSelect {
+    width: 5em;
+}
