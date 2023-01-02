@@ -15,6 +15,7 @@
     </head>
     <body>
         <h1>(Fork of) ScatterPatter's Incorrect Quotes Generator</h1>
+        <main>
         <form id="generationForm" onsubmit="generatePrompt(event)">
             <label for="characterSelect">Number of characters:</label>
             <input
@@ -24,7 +25,7 @@
                 name="characters"
                 id="characterSelect"
                 onchange="setMax(event); disableChars(event)">
-            <span id="tooHigh" class="invisible">sorry, that number is too high!</span>
+            <span id="tooHigh" class="invisible error">sorry, that number is too high!</span>
             <div id="charInputs">
                 <input placeholder="Character A" name="character1" autocomplete="off" oninput="updatePrompt(event)" required>
                 <input placeholder="Character B" name="character2" autocomplete="off" oninput="updatePrompt(event)" required disabled>
@@ -38,11 +39,12 @@
         <form id="swapForm" onsubmit="swapInputs(event)">
             <input type="number" class="swap-char" min="1" name="char1" required>
             <input type="number" class="swap-char" min="1" name="char2" required>
-            <input type="submit">
-            <span id="sameInput" class="invisible">You can't swap a name with itself</span>
+            <input type="submit" value="Swap!">
+            <div id="sameInput" class="invisible error">You can't swap a name with itself</div>
         </form>
         <div id="output" onclick=copyContent(event)></div>
         <span id="copyMessage" class="invisible">copied!</span>
+        </main>
         <footer>
             (loosely) based on the original <a href="https://incorrect-quotes-generator.neocities.org/">Incorrect Quotes Generator</a>
             | <a href="//github.com/jemand2001/incorrect_quotes">repo</a>

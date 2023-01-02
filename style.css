@@ -3,7 +3,7 @@ input[type='submit'] {
     margin: 12px;
 }
 
-#tooHigh {
+.error {
     color: rgb(112, 36, 36);
 }
 
@@ -20,6 +20,11 @@ footer {
     bottom: 0;
 }
 
-#characterSelect {
+input[type=number] {
     width: 5em;
+}
+
+main {
+    display: grid;
+    grid-template-columns: auto auto;
 }
