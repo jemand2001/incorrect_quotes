@@ -3,8 +3,8 @@
     <head>
         <title>Incorrect Quote generator</title>
         <script src="./quoteGen.js"></script>
-        <link rel=stylesheet href="./style.css"></link>
-        <link rel="icon" href="./quote_transparent.png"></link>
+        <link rel=stylesheet href="./style.css">
+        <link rel="icon" href="./quote_transparent.png">
 
         <meta property="og:title" content="Incorrect Quotes generator"/>
         <meta property="og:url" content="https://jemand2001.github.io/incorrect_quotes/"/>
@@ -23,17 +23,17 @@
                 value=1
                 name="characters"
                 id="characterSelect"
-                onchange="setMax(event); disableChars(event)"></input>
+                onchange="setMax(event); disableChars(event)">
             <span id="tooHigh" class="invisible">sorry, that number is too high!</span>
             <div id="charInputs">
-                <input placeholder="Character A" name="character1" autocomplete="off" oninput="updatePrompt(event)" required></input>
-                <input placeholder="Character B" name="character2" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
-                <input placeholder="Character C" name="character3" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
-                <input placeholder="Character D" name="character4" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
-                <input placeholder="Character E" name="character5" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
-                <input placeholder="Character F" name="character6" autocomplete="off" oninput="updatePrompt(event)" required disabled></input>
+                <input placeholder="Character A" name="character1" autocomplete="off" oninput="updatePrompt(event)" required>
+                <input placeholder="Character B" name="character2" autocomplete="off" oninput="updatePrompt(event)" required disabled>
+                <input placeholder="Character C" name="character3" autocomplete="off" oninput="updatePrompt(event)" required disabled>
+                <input placeholder="Character D" name="character4" autocomplete="off" oninput="updatePrompt(event)" required disabled>
+                <input placeholder="Character E" name="character5" autocomplete="off" oninput="updatePrompt(event)" required disabled>
+                <input placeholder="Character F" name="character6" autocomplete="off" oninput="updatePrompt(event)" required disabled>
             </div>
-            <input type="submit" value="Generate Prompt"></input>
+            <input type="submit" value="Generate Prompt">
         </form>
         <div id="output" onclick=copyContent(event)></div>
         <span id="copyMessage" class="invisible">copied!</span>
