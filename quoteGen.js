@@ -18,6 +18,9 @@ function disableChars(e) {
     inputs[i].disabled = i >= val;
   }
   currentPrompt = undefined;
+  for (const e of document.getElementsByClassName('swap-char')) {
+    e.max = val;
+  }
 }
 
 // this generates the prompt based on form values
@@ -93,12 +96,40 @@ function updatePrompt(e) {
     return
   // console.log(e.target);
   const form = e.target.form;
+  const chars = getChars(form);
+
+  renderPrompt(chars);
+}
+
+function getChars(form) {
   const chars = [];
-  const characters = form["characters"].value
+  const characters = form["characters"].value;
 
   for (let i = 0; i < characters; i++) {
-    chars.push(form[`character${i+1}`].value);
+    chars.push(form[`character${i + 1}`].value);
   }
+  return chars;
+}
 
+function swapInputs(e) {
+  e.stopPropagation()
+  e.preventDefault()
+
+  const form = e.target;
+
+  const char1 = parseInt(form['char1'].value);
+  const char2 = parseInt(form["char2"].value);
+  if (char1 == char2) {
+    showMessage('sameInput')
+  }
+  const genForm = document.getElementById("generationForm");
+  const el1 = genForm[`character${char1}`];
+  const el2 = genForm[`character${char2}`];
+  const name1 = el1.value;
+  const name2 = el2.value;
+  el1.value = name2;
+  el2.value = name1;
+
+  const chars = getChars(genForm);
   renderPrompt(chars);
 }

@@ -35,6 +35,12 @@
             </div>
             <input type="submit" value="Generate Prompt">
         </form>
+        <form id="swapForm" onsubmit="swapInputs(event)">
+            <input type="number" class="swap-char" min="1" name="char1" required>
+            <input type="number" class="swap-char" min="1" name="char2" required>
+            <input type="submit">
+            <span id="sameInput" class="invisible">You can't swap a name with itself</span>
+        </form>
         <div id="output" onclick=copyContent(event)></div>
         <span id="copyMessage" class="invisible">copied!</span>
         <footer>
